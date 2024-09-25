@@ -31,12 +31,12 @@
                     <span class="link-name">Dashboard</span>
                 </a></li>
                 <li><a href="{{ url_for('autoSend') }}">
-                    <i class="uil uil-files-landscapes-alt"></i>
-                    <span class="link-name">Content</span>
+                    <i class="uil uil-whatsapp"></i>
+                    <span class="link-name">Automatically Send</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="{{ url_for('competition') }}">
                     <i class="uil uil-chart"></i>
-                    <span class="link-name">Analytics</span>
+                    <span class="link-name">Competition</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-thumbs-up"></i>
@@ -93,20 +93,20 @@
                 </div>
 
                 <div class="boxes">
-                    <div class="box box1">
+                    <div class="box box1" data-link="#">
                         <i class="uil uil-thumbs-up"></i>
-                        <span class="text">Total Likes</span>
-                        <span class="number">50,120</span>
+                        <span class="text">Students Count</span>
+                        <span class="number">-----</span>
                     </div>
-                    <div class="box box2">
+                    <div class="box box2" data-link="#">
                         <i class="uil uil-comments"></i>
-                        <span class="text">Total Comments</span>
-                        <span class="number">50,120</span>
+                        <span class="text">Win Competition</span>
+                        <span class="number">-----</span>
                     </div>
-                    <div class="box box3">
+                    <div class="box box3" data-link="#">
                         <i class="uil uil-share"></i>
-                        <span class="text">Total Share</span>
-                        <span class="number">50,120</span>
+                        <span class="text">Pending Competition</span>
+                        <span class="number">-----</span>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,10 @@
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-clock"></i>
-                    <span class="text">Last Activity</span>
+                    <span class="text">Students Data</span>
+                    <a href="{{ url_for('inputSiswa') }}">
+                        <i class="uil uil-book-medical"></i>
+                    </a>
                 </div>
 
                 <div class="activity-data">
@@ -137,6 +140,15 @@
                     <div class="data status">
                         <span class="data-title">Status</span>
                         <span class="data-list">Liked</span>
+                    </div>
+                     <div class="data status">
+                         <span class="data-title">Action</span>
+                         <button class="edit-btn" onclick="">
+                             <i class="uil uil-edit"></i>
+                         </button>
+                         <button class="edit-btn" onclick="">
+                             <i class="uil uil-trash-alt"></i>
+                         </button>
                     </div>
                 </div>
             </div>

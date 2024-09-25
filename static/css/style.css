@@ -1,6 +1,7 @@
 /*Google Font Import - Poppins*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*CSS ROOT*/
 * {
     margin: 0;
     padding: 0;
@@ -285,7 +286,7 @@ nav.close ~ .dashboard .top{
 }
 
 .dashboard .dash-content{
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 /*CONTENT*/
@@ -293,6 +294,25 @@ nav.close ~ .dashboard .top{
     display: flex;
     align-items: center;
     margin: 60px 0 30px 0;
+}
+
+.dash-content .title-data{
+    display: flex;
+    align-items: center;
+    margin: 30px 0 30px 0;
+}
+
+.dash-content .title-data i{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--tittle-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
 }
 
 .dash-content .title i{
@@ -308,11 +328,30 @@ nav.close ~ .dashboard .top{
     font-size: 24px;
 }
 
+.dash-content .title a{
+    margin-left: auto; /* Mendorong elemen <a> ke sebelah kanan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
 .dash-content .title .text{
     font-size: 24px;
     font-weight: 500;
     color: var(--text-color);
     margin-left: 10px;
+}
+
+.dash-content .title-data .text{
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+.boxes{
+    cursor: pointer;
 }
 
 .dash-content .boxes{
@@ -333,6 +372,14 @@ nav.close ~ .dashboard .top{
     transition: var(--tran-05);
 }
 
+.boxes .box.box2{
+    background-color: var(--box2-color);
+}
+
+.boxes .box.box3{
+    background-color: var(--box3-color);
+}
+
 .boxes .boxes i{
     font-size: 35px;
     color: var(--text-color);
@@ -349,14 +396,6 @@ nav.close ~ .dashboard .top{
     font-size: 40px;
     font-weight: 500;
     color: var(--text-color);
-}
-
-.boxes .box.box2{
-    background-color: var(--box2-color);
-}
-
-.boxes .box.box3{
-    background-color: var(--box3-color);
 }
 
 .dash-content .activity .activity-data{
@@ -492,7 +531,7 @@ nav.close ~ .dashboard .top{
     }
 }
 
-/*CSS PAGE 2*/
+/* Styling Upload*/
 .upload-container {
     margin: 20px 0; /* Memberikan jarak vertikal */
     display: flex; /* Mengatur elemen dalam baris */
@@ -543,7 +582,6 @@ nav.close ~ .dashboard .top{
     border-color: var(--text-color);
 }
 
-
 /* Table Styling */
 .table-responsive {
     overflow-x: auto;
@@ -552,7 +590,7 @@ nav.close ~ .dashboard .top{
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 15px 0;
+    margin: 0;
     font-size: 16px;
     text-align: left;
 }

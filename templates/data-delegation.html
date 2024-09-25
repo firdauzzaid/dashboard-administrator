@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Javascript Library for Parse File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/style-competition.css">
+
+    <!-- Iconscout CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <title>Delegation Data</title>
+</head>
+<body>
+  <main class="table">
+    <section class="table-head">
+      <h1>Delegation Dataset</h1>
+        <div class="input-group">
+            <input type="search" placeholder="Search data ...">
+            <i class="uil uil-search"></i>
+        </div>
+        <div class="input-data">
+            <a href="{{ url_for('inputForm') }}">
+                <button>
+                    <i class="uil uil-plus-circle"></i>
+                </button>
+            </a>
+        </div>
+    </section>
+    <section class="table-body">
+      <table>
+        <thead>
+        <tr>
+          <th>ID <span class="icon_arrow">&UpArrow;</span></th>
+          <th>Competition Name <span class="icon_arrow">&UpArrow;</span></th>
+          <th>Organizer <span class="icon_arrow">&UpArrow;</span></th>
+          <th>Info Link <span class="icon_arrow">&UpArrow;</span></th>
+          <th>Event Date <span class="icon_arrow">&UpArrow;</span></th>
+          <th>Event <span class="icon_arrow">&UpArrow;</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Name of Students</td>
+          <td>Organizer Competition</td>
+          <td>Info Link Competition</td>
+          <td>Event Date Competition</td>
+          <td>
+              <p class="status completed">Competition</p>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>-----</td>
+          <td>-----</td>
+          <td>-----</td>
+          <td>-----</td>
+          <td>
+              <p class="status pending">-----</p>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>-----</td>
+          <td>-----</td>
+          <td>-----</td>
+          <td>-----</td>
+          <td>
+              <p class="status start">-----</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="../static/js/script-competition.js"></script>
+</body>
+</html>

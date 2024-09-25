@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Javascript Library for Parse File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/style-input.css">
+
+    <!-- Iconscout CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <title>Input Data Students</title>
+</head>
+<body>
+<div class="container">
+    <header>Insert Students Data</header>
+
+    <form action="#">
+        <div class="form-first">
+            <div class="details personal">
+                <span class="title">Personal Details</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>NISN</label>
+                        <input type="text" placeholder="Enter your NISN" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Gender</label>
+                        <select>
+                            <option value="" disabled selected>Choose an option</option>
+                            <option value="option1">Male</option>
+                            <option value="option2">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Date of Birth</label>
+                        <input type="date" placeholder="Enter birth date" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Email</label>
+                        <input type="text" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Number</label>
+                        <input type="number" placeholder="Enter your number" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Select Education </label>
+                        <select>
+                            <option value="" disabled selected>Choose an option</option>
+                            <option value="option1">SMP</option>
+                            <option value="option2">SMK</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Choose Grade</label>
+                        <select>
+                            <option value="" disabled selected>Choose an option</option>
+                            <option value="option1">7A</option>
+                            <option value="option2">7B</option>
+                            <option value="option1">8</option>
+                            <option value="option2">9</option>
+                            <option value="option1">10</option>
+                            <option value="option2">11</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Choose your Major</label>
+                        <select>
+                            <option value="" disabled selected>Choose an option</option>
+                            <option value="option1">RPL</option>
+                            <option value="option2">TKJ</option>
+                            <option value="option1">DKV</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="buttons">
+                <a href="{{ url_for('home') }}" class="btnBack">
+                    <i class="uil uil-navigator"></i>
+                    <span class="btnText">Back</span>
+                </a>
+                <button class="btnSubmit">
+                    <span class="btnText">Submit</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+    <script src="../static/js/script-input.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+/*Google Font Import - Poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*CSS Root*/
+:root {
+    /*Colors*/
+    --primary-color: #4b79ad;
+    --panel-color: #ffffff;
+    --text-color: #000;
+    --backligt-color: #707070;
+    --border-color: #e6e5e5;
+    --toggle-color: #DDD;
+    --box1-color: #4DA3FF;
+    --box2-color: #FFE6AC;
+    --box3-color: #E7D1FC;
+    --tittle-icon-color: #fff;
+
+    /*Transition*/
+    --tran-05: all 0.5s ease;
+    --tran-03: all 0.3s ease;
+    --tran-02: all 0.2s ease;
+}
+
+body.dark{
+    --primary-color: #3A3B3C;
+    --panel-color: #242526;
+    --text-color: #FFF;
+    --backligt-color: #CCC;
+    --border-color: #4D4C4C;
+    --toggle-color: #DDD;
+    --box1-color: #3A3B3C;
+    --box2-color: #3A3B3C;
+    --box3-color: #3A3B3C;
+    --tittle-icon-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+}
+
+.container {
+    position: relative;
+    max-width: 900px;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: var(--panel-color);
+    box-shadow: 0 5px 10px var(--backligt-color);
+}
+
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.container header::before{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    background-color: var(--box1-color);
+    left: 0;
+    border-radius: 8px;
+}
+
+.container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: auto;
+    margin-bottom: 0;
+    background-color: var(--panel-color);
+}
+
+.container form .details{
+    margin-top: 30px;
+}
+
+.container form .details.ID{
+    margin-top: 10px;
+}
+
+.container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: var(--text-color);
+}
+
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-field input{
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--box2-color);
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+    color: var(--text-color);
+}
+
+.input-field select{
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--box2-color);
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+    color: var(--text-color);
+}
+
+.input-field input:is(:focus, :valid){
+    box-shadow: 0 3px 6px var(--box2-color);
+}
+
+.input-field input[type="date"]{
+    color: var(--box3-color);
+}
+
+.input-field input[type="date"]:valid{
+    color: var(--backligt-color);
+}
+
+.container form button, .btnBack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: var(--box3-color);
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: var(--primary-color);
+    transition: var(--tran-03);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container form button,
+.container form .btnBack {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+form button:hover{
+    background-color: var(--primary-color);
+}
+
+form button i,
+form .btnBack i {
+    margin: 0 6px;
+}
+
+form .btnBack i {
+    transform: rotate(180deg);
+}
+
+.container form .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .buttons button .btnSubmit,
+form .buttons a .btnBack {
+    height: 100%; /* Membuat tombol mengisi hampir setengah dari lebar form */
+}
+
+@media (max-width: 750px) {
+    .container form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-field{
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field{
+        width: 100%;
+    }
+}

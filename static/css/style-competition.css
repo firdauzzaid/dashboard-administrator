@@ -1,0 +1,303 @@
+/*Google Font Import - Poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*CSS ROOT*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /*Colors*/
+    --primary-color: #4b79ad;
+    --panel-color: #ffffff;
+    --text-color: #000;
+    --backligt-color: #707070;
+    --border-color: #e6e5e5;
+    --toggle-color: #DDD;
+    --box1-color: #4DA3FF;
+    --box2-color: #FFE6AC;
+    --box3-color: #E7D1FC;
+    --tittle-icon-color: #fff;
+
+    /*Transition*/
+    --tran-05: all 0.5s ease;
+    --tran-03: all 0.3s ease;
+    --tran-02: all 0.2s ease;
+}
+
+body.dark{
+    --primary-color: #3A3B3C;
+    --panel-color: #242526;
+    --text-color: #FFF;
+    --backligt-color: #CCC;
+    --border-color: #4D4C4C;
+    --toggle-color: #DDD;
+    --box1-color: #3A3B3C;
+    --box2-color: #3A3B3C;
+    --box3-color: #3A3B3C;
+    --tittle-icon-color: #fff;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--panel-color);
+}
+
+/*Styling Table*/
+table{
+    width: 100%;
+}
+
+main.table{
+    width: 82vw;
+    height: 90vh;
+    background-color: var(--primary-color);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 .4rem .8rem .8rem var(--border-color);
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+.table-head{
+    width: 100%;
+    height: 10%;
+    color: var(--tittle-icon-color);
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-head .input-group{
+    width: 25%;
+    height: 100%;
+    padding: 0 1rem;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tran-03);
+    margin-left: auto;
+    flex: 1; /* Membuat lebar elemen ini responsif */
+    max-width: 300px; /* Atur lebar maksimum jika diperlukan */
+}
+
+.table-head .input-data{
+    /*width: 5%;*/
+    height: 100%;
+    padding: 0;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    border-radius: 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: var(--tran-03);
+    margin-left: 1rem;
+    flex: 0 0 auto; /* Pastikan elemen ini tidak mengembang */
+    width: 50px; /* Atur lebar tetap jika diperlukan */
+}
+
+.table-head .input-group:hover{
+    width: 35%;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    box-shadow: 0 .1rem .4rem var(--panel-color);
+}
+
+.table-head .input-group input{
+    width: 100%;
+    padding: 0 .5rem 0 .3rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.table-head .input-group i{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--text-color);
+}
+
+.table-head .input-data:hover{
+    width: 7%;
+    background-color: var(--primary-color);
+    color: var(--tittle-icon-color);
+    box-shadow: 0 .1rem .4rem var(--primary-color);
+}
+
+.table-head .input-data button{
+    width: 100%;
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.table-head .input-data i{
+    font-size: 1.8rem;
+    color: var(--tittle-icon-color);
+    width: 1.9rem;
+    height: 1.9rem;
+    cursor: pointer;
+}
+
+.table-body{
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: var(--panel-color);
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+    overflow: overlay;
+}
+
+.table-body::-webkit-scrollbar{
+    width: .5rem;
+    height: .5rem;
+}
+
+.table-body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: var(--backligt-color);
+    visibility: hidden;
+}
+
+.table-body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+table, th, td {
+    padding: 1rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*tbody tr:nth-child(even){*/
+/*    background-color: var(--backligt-color);*/
+/*}*/
+
+tbody tr:hover{
+    background-color: var(--backligt-color) !important;
+}
+
+tbody tr{
+    --delay: .2s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+tbody tr td,
+tbody tr td p{
+    transition: var(--tran-03);
+}
+
+tbody tr.hide td,
+tbody tr.hide td p{
+    padding: 0;
+    font-size: 0 / 0 Poppins;
+    transition: var(--tran-03) .5s;
+}
+
+.status{
+    padding: .4rem 0;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.status.completed{
+    background-color: #86e49d;
+    color: #006b21;
+}
+
+.status.pending{
+    background-color: #d893a3;
+    color: #006b21;
+}
+
+.status.start{
+    background-color: #ebc474;
+    color: #b30021;
+}
+
+thead th span.icon_arrow{
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: .5rem;
+    border: 1.4px solid transparent;
+    transition: var(--tran-03);
+}
+
+thead th:hover span.icon_arrow{
+    border: 1.4px solid var(--box3-color);
+}
+
+thead th:hover{
+    color: var(--box3-color);
+}
+
+thead th.active span.icon_arrow{
+    background-color: var(--box3-color);
+    color: var(--text-color);
+}
+
+thead th.asc span.icon_arrow{
+    transform: rotate(180deg);
+    transition: var(--tran-05);
+}
+
+thead th.active, tbody td.active{
+    color: var(--box3-color);
+}
+
+/* Responsif untuk ukuran layar kecil */
+@media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+    .table-head {
+        flex-wrap: wrap; /* Izinkan elemen untuk membungkus jika ruang terbatas */
+    }
+    .table-head .input-group {
+        flex: 1 1 100%; /* Menjadi 100% lebar pada layar kecil */
+        margin-bottom: 0.5rem; /* Tambahkan jarak antara elemen */
+    }
+    .table-head .input-data {
+        flex: 1 1 auto; /* Membuat ini responsif juga */
+        width: auto; /* Setel lebar ke auto */
+    }
+}

@@ -21,6 +21,37 @@ def autoSend():
     global data_storage
     return render_template('auto-send.html', data=data_storage)
 
+
+@app.route('/competition')
+def competition():
+    return render_template('competition.html')
+
+
+@app.route('/dataCompetition')
+def dataCompetition():
+    return render_template('data-competition.html')
+
+
+@app.route('/dataDelegation')
+def dataDelegation():
+    return render_template('data-delegation.html')
+
+
+@app.route('/dataStock')
+def dataStock():
+    return render_template('data-stock.html')
+
+
+@app.route('/inputForm')
+def inputForm():
+    return render_template('input-form.html')
+
+
+@app.route('/inputSiswa')
+def inputSiswa():
+    return render_template('input-siswa.html')
+
+
 data_storage = []  # Menyimpan data di memori (bisa disimpan di database jika diperlukan)
 
 @app.route('/save_data', methods=['POST'])

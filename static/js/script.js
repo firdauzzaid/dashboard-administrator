@@ -41,8 +41,14 @@ sidebarToggle.addEventListener("click", () => {
     }
 });
 
+// Tambahkan event listener pada semua elemen dengan class 'box'
+document.querySelectorAll('.box').forEach(function(box) {
+    box.addEventListener('click', function() {
+        window.location.href = box.getAttribute('data-link'); // Ambil URL dari atribut data-link
+    });
+});
 
-// For Page 2
+// ===================================== JS for Automatically Send Whatsapp ======================================
 function loadFile(event) {
     const file = event.target.files[0];
     const fileType = file.type;
@@ -81,8 +87,7 @@ function parseXLSX(file) {
     reader.readAsArrayBuffer(file);
 }
 
-
-// Fungsi untuk menampilkan data pada elemen yang telah disiapkan
+// Funsi menampilkan data pada tabel
 function displayData(data) {
     const tableBody = document.querySelector('#fileTable tbody');
     tableBody.innerHTML = '';  // Kosongkan tabel sebelum diisi ulang
@@ -104,7 +109,7 @@ function displayData(data) {
     saveDataToBackend(data);
 }
 
-
+// Fungsi hapus data tabel
 function deleteData() {
     const result = confirm("Are you sure you want to delete all data?");
     if (result) {
@@ -132,7 +137,7 @@ function deleteData() {
     }
 }
 
-
+// Fungsi simpan data tabel ke backend
 function saveDataToBackend(data) {
     fetch('/save_data', {
         method: 'POST',
@@ -151,33 +156,7 @@ function saveDataToBackend(data) {
     });
 }
 
-
-function getData() {
-    fetch('/get_saved_data', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.length > 0) {  // Jika ada data yang tersimpan
-            console.log('Data found:', result);
-            displayData(result);  // Menampilkan data yang diterima dari backend
-        } else {
-            console.log('No data availabale.');
-            // Tindakan jika tidak ada data, seperti menampilkan pesan
-            document.querySelector('#fileTable tbody').innerHTML = `
-                <tr><td colspan="6" style="text-align: center;">There is no data availabale</td></tr>
-            `;
-        }
-    })
-    .catch(error => {
-        console.error('Error mendapatkan data:', error);
-    });
-}
-
-
+// Fungsi kirim data whatsapp
 function sendData() {
     const rows = document.querySelectorAll('#fileTable tbody tr');
 

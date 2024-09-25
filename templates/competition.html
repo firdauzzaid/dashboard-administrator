@@ -34,11 +34,11 @@
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dashboard</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="{{ url_for('autoSend') }}">
                     <i class="uil uil-whatsapp"></i>
                     <span class="link-name">Automatically Send</span>
                 </a></li>
-                <li><a href="{{ url_for('competition') }}">
+                <li><a href="#">
                     <i class="uil uil-chart"></i>
                     <span class="link-name">Competition</span>
                 </a></li>
@@ -90,33 +90,47 @@
         </div>
 
         <div class="dash-content">
-          <div class="title">
-            <i class="uil uil-servers"></i>
-            <span class="text">Upload Data</span>
-          </div>
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Competitions</span>
+                </div>
 
-          <div class="upload-container">
-              <label for="fileInput" class="upload-label">Choose File</label>
-              <input type="file" id="fileInput" accept=".csv, .xlsx" onchange="loadFile(event)">
-              <button class="send-btn" onclick="sendData()">Send</button>
-              <button class="delete-btn" onclick="deleteData()">Delete</button>
-          </div>
-
-            <div class="title-data">
-                <i class="uil uil-clock"></i>
-                <span class="text">Dataset</span>
+                <div class="boxes">
+                    <div class="box box1" data-link="{{ url_for('dataCompetition') }}">
+                        <i class="uil uil-archive-alt"></i>
+                        <span class="text">Competition Data</span>
+                        <span class="number">---</span>
+                    </div>
+                    <div class="box box2" data-link="{{ url_for('dataDelegation') }}">
+                        <i class="uil uil-files-landscapes-alt"></i>
+                        <span class="text">Delegation Data</span>
+                        <span class="number">---</span>
+                    </div>
+                    <div class="box box3" data-link="{{ url_for('dataStock') }}">
+                        <i class="uil uil-file-export"></i>
+                        <span class="text">Stock Competition</span>
+                        <span class="number">---</span>
+                    </div>
+                </div>
             </div>
 
-          <div class="table-responsive">
+            <div class="title-data">
+                <i class="uil uil-dialpad-alt"></i>
+                <span class="text">Competition Dataset</span>
+            </div>
+
+            <div class="table-responsive">
             <div class="activity-data">
                  <table id="fileTable">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>File</th>
-                            <th>Status</th>
+                            <th>Competition Name</th>
+                            <th>Organizer</th>
+                            <th>Info Link</th>
+                            <th>Event Date</th>
+                            <th>Event</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,7 +145,7 @@
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="5" style="text-align:center;">No data available</td>
+                            <td colspan="6" style="text-align:center;">No data available</td>
                         </tr>
                     {% endfor %}
                     </tbody>
