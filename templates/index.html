@@ -21,7 +21,7 @@
                 <img src="../static/images/logo-color.png" alt="">
             </div>
 
-            <span class="logo_name">Znonymous</span>
+            <span class="logo_name">Administrator</span>
         </div>
 
         <div class="menu-items">
@@ -115,40 +115,56 @@
                 <div class="title">
                     <i class="uil uil-clock"></i>
                     <span class="text">Students Data</span>
-                    <a href="{{ url_for('inputSiswa') }}">
-                        <i class="uil uil-book-medical"></i>
-                    </a>
+
+                    <div class="upload-containerSiswa">
+                        <label for="fileInputSiswa" class="upload-label">Choose File</label>
+                        <input type="file" id="fileInputSiswa" accept=".csv, .xlsx" onchange="loadFile(event)">
+
+                        <a href="{{ url_for('inputSiswa') }}">
+                            <i class="uil uil-book-medical"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="activity-data">
-                    <div class="data names">
-                        <span class="data-title">Name</span>
-                        <span class="data-list">Lost Activity</span>
-                    </div>
-                    <div class="data email">
-                        <span class="data-title">Email</span>
-                        <span class="data-list">example@email.com</span>
-                    </div>
-                    <div class="data joined">
-                        <span class="data-title">Joined</span>
-                        <span class="data-list">2022</span>
-                    </div>
-                    <div class="data type">
-                        <span class="data-title">Type</span>
-                        <span class="data-list">New</span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title">Status</span>
-                        <span class="data-list">Liked</span>
-                    </div>
-                     <div class="data status">
-                         <span class="data-title">Action</span>
-                         <button class="edit-btn" onclick="">
-                             <i class="uil uil-edit"></i>
-                         </button>
-                         <button class="edit-btn" onclick="">
-                             <i class="uil uil-trash-alt"></i>
-                         </button>
+                <div class="table-responsive">
+                    <div class="activity-data">
+                        <table id="fileTable">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Competition Name</th>
+                                <th>Organizer</th>
+                                <th>Info Link</th>
+                                <th>Event Date</th>
+                                <th>Event</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Data dari file yang diupload akan ditambahkan di sini -->
+                            {% for row in data %}
+                            <tr>
+                                <td>{{ loop.index }}</td>  <!-- Nomor urut -->
+                                <td>{{ row.Name }}</td>     <!-- Nama -->
+                                <td>{{ row.Contact }}</td>  <!-- Kontak -->
+                                <td>{{ row.File }}</td>     <!-- File -->
+                                <td>{{ row.Status or 'Pending' }}</td>  <!-- Status -->
+                                <td>
+                                    <button onclick="">
+                                        <i class="uil uil-edit"></i>
+                                    </button>
+                                    <button onclick="">
+                                        <i class="uil uil-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="7" style="text-align:center;">No data available</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

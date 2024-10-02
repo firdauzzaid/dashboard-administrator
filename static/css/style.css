@@ -286,7 +286,7 @@ nav.close ~ .dashboard .top{
 }
 
 .dashboard .dash-content{
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 /*CONTENT*/
@@ -328,11 +328,19 @@ nav.close ~ .dashboard .top{
     font-size: 24px;
 }
 
-.dash-content .title a{
+.dash-content .title .upload-containerSiswa{
+    padding-top: 0;
     margin-left: auto; /* Mendorong elemen <a> ke sebelah kanan */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#fileInputSiswa{
+    display: none;
+}
+
+.title .upload-containerSiswa i{
     text-decoration: none;
 }
 
@@ -405,28 +413,88 @@ nav.close ~ .dashboard .top{
     width: 100%;
 }
 
-.activity .activity-data{
-    display: flex;
+/* Styling Upload*/
+.upload-container {
+    margin: 20px 0; /* Memberikan jarak vertikal */
+    display: flex; /* Mengatur elemen dalam baris */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    justify-content: left; /* Menyelaraskan elemen secara horizontal */
 }
 
-.activity-data .data{
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px;
+.upload-label {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--tittle-icon-color);
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px; /* Jarak antara label dan input */
+    transition: background-color var(--tran-03), border-color var(--tran-03);
 }
 
-.activity-data .data-title{
-    font-size: 20px;
-    font-weight: 500;
+.upload-label:hover {
+    background-color: var(--text-color);
+    color: var(--panel-color);
+    border-color: var(--text-color);
+}
+
+#fileInput {
+    display: none; /* Menyembunyikan input file default */
+}
+
+.send-btn, .delete-btn {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--tittle-icon-color);
+    font-size: 12px;
+    font-weight: 300;
+    border-radius: 5px;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: background-color var(--tran-03), border-color var(--tran-03);
+    margin-right: 10px;
+}
+
+.send-btn:hover, .delete-btn:hover {
+    background-color: var(--text-color);
+    color: var(--tittle-icon-color);
+    border-color: var(--text-color);
+}
+
+/* Table Styling */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+table thead {
+    background-color: var(--primary-color);
     color: var(--text-color);
 }
 
-.activity-data .data .data-list{
-    font-size: 18px;
-    font-weight: 400;
-    margin-top: 20px;
-    white-space: nowrap;
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+}
+
+table tbody tr {
+    background-color: var(--panel-color);
     color: var(--text-color);
+    display: table-row;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: var(--backligt-color);
 }
 
 /*Responsive Content*/
@@ -481,6 +549,38 @@ nav.close ~ .dashboard .top{
     }
 }
 
+@media (max-width: 600px) {
+    table thead {
+        table-layout: fixed;
+        display: block;/* Hide the header for mobile */
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 7px;
+    }
+
+    table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
 @media (max-width: 560px) {
     .dash-content .boxes .box{
         width: 100%;
@@ -528,122 +628,5 @@ nav.close ~ .dashboard .top{
     }
     .dashboard .top .sidebar-toggle{
         display: none;
-    }
-}
-
-/* Styling Upload*/
-.upload-container {
-    margin: 20px 0; /* Memberikan jarak vertikal */
-    display: flex; /* Mengatur elemen dalam baris */
-    align-items: center; /* Menyelaraskan elemen secara vertikal */
-    justify-content: left; /* Menyelaraskan elemen secara horizontal */
-}
-
-.upload-label {
-    font-size: 12px;
-    font-weight: 300;
-    color: var(--text-color);
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    padding: 10px 10px;
-    cursor: pointer;
-    text-align: center;
-    margin-right: 10px; /* Jarak antara label dan input */
-    transition: background-color var(--tran-03), border-color var(--tran-03);
-}
-
-.upload-label:hover {
-    background-color: var(--text-color);
-    color: var(--panel-color);
-    border-color: var(--text-color);
-}
-
-#fileInput {
-    display: none; /* Menyembunyikan input file default */
-}
-
-.send-btn, .delete-btn {
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    color: var(--text-color);
-    font-size: 12px;
-    font-weight: 300;
-    border-radius: 5px;
-    padding: 10px 10px;
-    cursor: pointer;
-    transition: background-color var(--tran-03), border-color var(--tran-03);
-    margin-right: 10px;
-}
-
-.send-btn:hover, .delete-btn:hover {
-    background-color: var(--text-color);
-    color: var(--panel-color);
-    border-color: var(--text-color);
-}
-
-/* Table Styling */
-.table-responsive {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
-    font-size: 16px;
-    text-align: left;
-}
-
-table thead {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-}
-
-table th, table td {
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-}
-
-table tbody tr {
-    background-color: var(--panel-color);
-    color: var(--text-color);
-    display: table-row;
-}
-
-table tbody tr:nth-of-type(even) {
-    background-color: var(--backligt-color);
-}
-
-/* Responsif */
-@media (max-width: 600px) {
-    table thead {
-        table-layout: fixed;
-        display: block;/* Hide the header for mobile */
-    }
-
-    table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-    }
-
-    table tr {
-        margin-bottom: 7px;
-    }
-
-    table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    table td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 15px;
-        font-weight: bold;
-        text-align: left;
     }
 }
