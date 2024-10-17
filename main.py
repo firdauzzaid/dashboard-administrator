@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.chrome.service import Service
@@ -100,12 +101,13 @@ def send_whatsapp_message(contact, name, file_link):
 
         # Tunggu hingga input box tersedia dan dapat digunakan
         sending_message = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]'))
+            EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Kirim"]'))
         )
 
         sending_message.send_keys(Keys.ENTER)
         time.sleep(10)  # Tunggu beberapa detik untuk memastikan pesan terkirim
         return True
+
 
     except (TimeoutException, WebDriverException) as e:
         print(f"Error sending message to {contact}: {e}")
