@@ -36,7 +36,15 @@ To run this project, you will need to add the following API KEY for Chrome Drive
 
 To be able to run the program, the first thing to prepare is to import the dataset. Then click the submit button then wait for the program to run and will open web chrome automatically. You only need to wait for the program to send an automatic message until it is finished.
 
-![App Screenshot](./image/ss.png)
+### First Step is Upload Dataset
+
+![App Screenshot](./image/ss2.png)
+
+### Second Step Click Send Button
+
+Look at the status column indicating the result of the sent message whether successful or failed.
+
+![App Screenshot](./image/ss1.png)
 
 Note: Don't forget to set up a login to whatsapp web when chrome opens
 
